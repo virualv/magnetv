@@ -38,7 +38,7 @@
     <!-- 为避免项目间冲突，定义唯一的 webAppRootKey -->
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>magnetw</param-value>
+        <param-value>magnetv</param-value>
     </context-param>
 
     <filter>
@@ -60,7 +60,7 @@
 
     <filter>
         <filter-name>requestLoggerFilter</filter-name>
-        <filter-class>in.xiandan.magnetw.filter.RequestLoggerFilter</filter-class>
+        <filter-class>cn.byteorchid.magnetv.filter.RequestLoggerFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>requestLoggerFilter</filter-name>

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.0/lib/index.css">
     <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vant@2.0/lib/vant.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.2/dist/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/vue-resource/1.5.0/vue-resource.min.js"></script>
     <script src="https://cdn.bootcss.com/js-cookie/latest/js.cookie.min.js"></script>
     <script src="resources/js/dist/vue-clipboard.min.js"></script>
@@ -155,6 +156,7 @@
         <van-cell-group>
             <van-cell title="磁力优化" @click="clickCopyAction"></van-cell>
             <van-cell title="小米路由" @click="clickMiWiFiAction"></van-cell>
+            <van-cell title="Aria2下载" @click="clickAria2Action"></van-cell>
             <van-cell title="文件列表" @click="clickFilesAction"
                       v-show="rule&&rule.detail"></van-cell>
             <van-cell title="源站详情" @click="clickDetailAction"></van-cell>
@@ -268,6 +270,14 @@
         vue.clickMiWiFiAction = function () {
             vue._data.status.popup.show = false;
             window.open(vue.formatMiWifiUrl(vue._data.status.popup.item.magnet));
+        };
+
+        /**
+         * aria2
+         */
+        vue.clickAria2Action = function () {
+            vue._data.status.popup.show = false;
+            vue.sendToAria2(vue._data.status.popup.item.magnet);
         };
 
         /**

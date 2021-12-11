@@ -9,6 +9,8 @@ new Vue({
         sourceSites: null,
         list: [],
         trackersString: null,
+        aria2Rpc: null,
+        aria2RpcToken: null,
         current: null,
         sortBy: null,
         rule: null,
@@ -214,6 +216,8 @@ new Vue({
                 if (response.body.success) {
                     const data = response.body.data;
                     this.trackersString = data.trackersString;
+                    this.aria2Rpc = data.aria2Rpc;
+                    this.aria2RpcToken = data.aria2RpcToken;
                     this.rule = data.rule;
                     this.current = data.current;
                     console.log("callback - onRequestSuccess");
@@ -234,6 +238,25 @@ new Vue({
         },
         formatMiWifiUrl(url) {
             return "http://d.miwifi.com/d2r/?url=" + Base64.encodeURI(url);
+        },
+        sendToAria2(url){
+
+            let id = new Date().getTime();
+            let param = '["token:'+ this.aria2RpcToken +'",["' + url + '"],{}]';
+            let aria2RpcUrl =  this.aria2Rpc + '?jsonrpc=2.0&method=aria2.addUri&id=' + Base64.encodeURI(id) + '&params=' + Base64.encodeURI(param) + '';
+
+            this.$http.get(aria2RpcUrl).then(function (response) {
+                //请求成功
+                console.log(typeof response.status)
+                if (response.status == 200) {
+                    window.alert("发送地址成功，Aria2正在下载中...");
+                } else {
+                    window.alert('向aria2发送地址失败，请检查配置！');
+                }
+            }).catch(function (error) {
+                //请求失败
+                window.alert("HTTP " + error.status + ": " + error.statusText);
+            });
         },
         /**
          * 屏蔽的dialog

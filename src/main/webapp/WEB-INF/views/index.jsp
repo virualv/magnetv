@@ -243,6 +243,12 @@
                                            target="_blank">小米路由
                                         </a>
                                     </div>
+                                    <div class="more-action-button">
+                                        <el-button type="button"
+                                                   size="mini" plain
+                                                   @click="sendToAria2(scope.row.magnet)">Aria2下载
+                                        </el-button>
+                                    </div>
                                     <div class="more-action-button"
                                          v-show="rule&&rule.detail">
                                         <el-button type="button"

@@ -9,10 +9,10 @@
 http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.0.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
     <!--扫描包路径-->
-    <context:component-scan base-package="in.xiandan.magnetw.config" />
-    <context:component-scan base-package="in.xiandan.magnetw.controller" />
-    <context:component-scan base-package="in.xiandan.magnetw.service" />
-    <context:component-scan base-package="in.xiandan.magnetw.handler" />
+    <context:component-scan base-package="cn.byteorchid.magnetv.config" />
+    <context:component-scan base-package="cn.byteorchid.magnetv.controller" />
+    <context:component-scan base-package="cn.byteorchid.magnetv.service" />
+    <context:component-scan base-package="cn.byteorchid.magnetv.handler" />
 
     <!-- 开启注解 -->
     <context:annotation-config />

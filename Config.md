@@ -6,9 +6,10 @@
 * [代理配置](#代理配置)
 
 ## 自定义配置
-配置文件在`main/resources/config.properties`下，修改配置后需要重新启动项目
+配置文件在`main/resources/application.properties`下，修改配置后需要重新启动项目
 
 ```
+http://tool.chinaz.com/tools/md5.aspx
 #管理密码 32位小写MD5值
 admin.password.md5=
 
