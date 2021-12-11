@@ -1,5 +1,8 @@
 # magnetv
 
+原magnetW优化版
+
+
 > 环境依赖：
 > - JDK >= 1.8
 > - Maven >= 3.6.x
